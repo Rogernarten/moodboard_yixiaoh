@@ -37,15 +37,19 @@ export function PhotoSlot({
   const exists = fs.existsSync(path.join(process.cwd(), "public", PHOTO_DIR, file));
 
   return (
-    <div className="relative w-full overflow-hidden border border-mf-rule" style={{ aspectRatio: aspect }}>
+    <div className="relative isolate w-full overflow-hidden border border-mf-rule bg-mf-kraft" style={{ aspectRatio: aspect }}>
       {exists ? (
-        <Image
-          src={`/${PHOTO_DIR}/${file}`}
-          alt={alt}
-          fill
-          sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover"
-        />
+        <>
+          {/* Two-ink print: grayscale multiplied onto kraft for the lights, ink navy for the darks. */}
+          <Image
+            src={`/${PHOTO_DIR}/${file}`}
+            alt={alt}
+            fill
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover mix-blend-multiply grayscale contrast-125"
+          />
+          <div aria-hidden className="absolute inset-0 bg-mf-ink mix-blend-lighten" />
+        </>
       ) : (
         <div
           className="flex h-full flex-col justify-end gap-1 p-4 font-mf-mono text-xs text-mf-umber"

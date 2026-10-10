@@ -26,7 +26,7 @@ export default function ManifestMoodBoard() {
     {
       kind: "Photo",
       title: "Container yard from above",
-      content: <PhotoSlot file="01.jpg" alt="Container yard seen from above" query="container yard aerial" aspect="4/3" />,
+      content: <PhotoSlot file="container-yard.jpg" alt="Container yard seen from above" query="container yard aerial drone" aspect="3/2" />,
     },
     {
       kind: "Type",
@@ -41,8 +41,8 @@ export default function ManifestMoodBoard() {
     { kind: "Interface", title: "Recommendation stamps", content: <RecommendationStamps /> },
     {
       kind: "Photo",
-      title: "Rubber stamps and ink pad",
-      content: <PhotoSlot file="02.jpg" alt="Rubber stamps beside an ink pad" query="rubber stamp ink" aspect="1/1" />,
+      title: "Rubber stamp on a document",
+      content: <PhotoSlot file="rubber-stamp.jpg" alt="A wooden rubber stamp resting on a printed document" query="rubber stamp ink" aspect="1600/1240" />,
     },
     { kind: "Texture", title: "Kraft paper grain", content: <KraftGrain /> },
     {
@@ -68,15 +68,15 @@ export default function ManifestMoodBoard() {
     {
       kind: "Photo",
       title: "Gantry cranes at dusk",
-      content: <PhotoSlot file="03.jpg" alt="Port gantry cranes at dusk" query="port gantry crane" aspect="3/4" />,
+      content: <PhotoSlot file="cranes-dusk.jpg" alt="Port gantry cranes at dusk" query="port gantry crane" aspect="1584/1600" />,
     },
     { kind: "Interface", title: "Boxed record fields", content: <LadingFields /> },
     { kind: "Color", title: "Ink navy", content: <Swatch hex="#1F2A44" name="Ink navy" role="Text" /> },
     { kind: "Texture", title: "Carbon copy", content: <CarbonCopy /> },
     {
       kind: "Photo",
-      title: "Manila folders",
-      content: <PhotoSlot file="04.jpg" alt="A stack of manila folders" query="manila folders" aspect="4/3" />,
+      title: "Stack of paperwork",
+      content: <PhotoSlot file="paper-stack.jpg" alt="A tall stack of papers and envelopes" query="manila folders" aspect="2/3" />,
     },
     {
       kind: "Type",
@@ -98,7 +98,7 @@ export default function ManifestMoodBoard() {
     {
       kind: "Photo",
       title: "Carbon-copy receipt book",
-      content: <PhotoSlot file="05.jpg" alt="A carbon-copy receipt book" query="carbon copy receipt" aspect="4/5" />,
+      content: <PhotoSlot file="carbon-receipt.jpg" alt="A carbon-copy receipt book" query="carbon copy invoice book" aspect="4/3" />,
     },
     { kind: "Texture", title: "Perforated tear-off", content: <PerforatedEdge /> },
     {
@@ -120,18 +120,18 @@ export default function ManifestMoodBoard() {
     },
     {
       kind: "Photo",
-      title: "Stenciled container doors",
+      title: "Container door data plate",
       content: (
-        <PhotoSlot file="06.jpg" alt="Shipping container doors with stenciled codes" query="shipping container doors" aspect="3/4" />
+        <PhotoSlot file="door-data-plate.jpg" alt="Stenciled weight and capacity figures on a container door" query="shipping container doors" aspect="823/1556" />
       ),
     },
     { kind: "Interface", title: "Buttons and link", content: <Buttons /> },
     { kind: "Texture", title: "Ledger rules", content: <LedgerGrid /> },
     {
       kind: "Photo",
-      title: "Clipboard of shipping forms",
+      title: "Clipboard with a handwritten log",
       content: (
-        <PhotoSlot file="07.jpg" alt="Clipboard holding shipping paperwork" query="clipboard paperwork warehouse" aspect="4/3" />
+        <PhotoSlot file="clipboard-log.jpg" alt="A clipboard holding a handwritten log sheet" query="clipboard paperwork warehouse" aspect="3/4" />
       ),
     },
     {
@@ -152,7 +152,7 @@ export default function ManifestMoodBoard() {
     {
       kind: "Photo",
       title: "Folded knit sweaters",
-      content: <PhotoSlot file="08.jpg" alt="Folded knit sweaters on a table" query="folded knit sweaters" aspect="1/1" />,
+      content: <PhotoSlot file="knit-sweaters.jpg" alt="A stack of folded knit sweaters" query="folded knit sweaters" aspect="2/3" />,
     },
   ];
 
