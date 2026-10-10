@@ -8,6 +8,10 @@
   --font-mf-mono: var(--next-mf-mono);
   --font-mf-condensed: var(--next-mf-condensed);
   --font-mf-typewriter: var(--next-mf-typewriter);
+  --font-pp-display: var(--next-pp-display);
+  --font-pp-serif: var(--next-pp-serif);
+  --font-pp-sans: var(--next-pp-sans);
+  --font-pp-kicker: var(--next-pp-kicker);
 }
 
 /* Manifest mood board palette, prefixed mf- */
@@ -18,6 +22,16 @@
   --color-mf-umber: #6b6455;
   --color-mf-rule: #cbbf9f;
   --color-mf-stamp: #c2352b;
+}
+
+/* Pink Paper mood board palette, prefixed pp- */
+@theme {
+  --color-pp-salmon: #fff1e5;
+  --color-pp-tint: #f7e3d3;
+  --color-pp-ink: #262a33;
+  --color-pp-graphite: #66605a;
+  --color-pp-rule: #dcc5b2;
+  --color-pp-teal: #0f5257;
 }
 
 body {

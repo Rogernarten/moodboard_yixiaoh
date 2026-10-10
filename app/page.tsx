@@ -7,7 +7,7 @@ const sections: { title: string; note?: string; links: HubLink[] }[] = [
     title: "Mood boards",
     links: [
       { label: "Manifest", href: "/mood-boards/manifest" },
-      { label: "Pink Paper" },
+      { label: "Pink Paper", href: "/mood-boards/pink-paper" },
       { label: "Night Port" },
     ],
   },
