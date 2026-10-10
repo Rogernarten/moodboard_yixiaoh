@@ -3,6 +3,11 @@
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-mf-stencil: var(--next-mf-stencil);
+  --font-mf-shoulders: var(--next-mf-shoulders);
+  --font-mf-mono: var(--next-mf-mono);
+  --font-mf-condensed: var(--next-mf-condensed);
+  --font-mf-typewriter: var(--next-mf-typewriter);
 }
 
 /* Manifest mood board palette, prefixed mf- */
