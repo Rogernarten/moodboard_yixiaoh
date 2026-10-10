@@ -330,3 +330,144 @@ export function VendorRows() {
     </div>
   );
 }
+
+/* ---------- Illustrations ---------- */
+
+/* Seeded random so the drawing is identical on every render. */
+function seeded(seed: number) {
+  return () => {
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+const ROOF_TONES = ["#efe6d2", "#cbbf9f", "#cbbf9f", "#a39a85", "#6b6455", "#6b6455", "#46506a"];
+const BLOCK_TOPS = [10, 92, 174];
+
+export function ContainerYard() {
+  const rand = seeded(7);
+  const roofs: { x: number; y: number; w: number; tone: string }[] = [];
+  for (const top of BLOCK_TOPS) {
+    for (let row = 0; row < 4; row++) {
+      let x = 10;
+      while (true) {
+        const w = rand() < 0.7 ? 46 : 22;
+        if (x + w > 350) break;
+        if (rand() > 0.08) {
+          roofs.push({ x, y: top + row * 16, w, tone: ROOF_TONES[Math.floor(rand() * ROOF_TONES.length)] });
+        }
+        x += w + 2;
+      }
+    }
+  }
+
+  return (
+    <svg viewBox="0 0 360 246" className="block h-auto w-full border border-mf-rule" role="img" aria-label="Container yard seen from above">
+      <defs>
+        <pattern id="mf-ribs" width="3" height="14" patternUnits="userSpaceOnUse">
+          <rect width="0.8" height="14" fill="#1f2a44" fillOpacity="0.25" />
+        </pattern>
+      </defs>
+      <rect width="360" height="246" fill="#1f2a44" />
+      {[82, 164].map((y) => (
+        <line key={y} x1="0" x2="360" y1={y} y2={y} stroke="#cbbf9f" strokeOpacity="0.5" strokeDasharray="8 6" />
+      ))}
+      {roofs.map((roof) => (
+        <g key={`${roof.x}-${roof.y}`}>
+          <rect x={roof.x} y={roof.y} width={roof.w} height="14" fill={roof.tone} />
+          <rect x={roof.x} y={roof.y} width={roof.w} height="14" fill="url(#mf-ribs)" />
+        </g>
+      ))}
+      {/* Trucks in the lanes */}
+      {[
+        { x: 58, y: 77 },
+        { x: 236, y: 159 },
+      ].map(({ x, y }) => (
+        <g key={x}>
+          <rect x={x} y={y} width="46" height="10" fill="#6b6455" />
+          <rect x={x + 48} y={y + 1} width="7" height="8" fill="#efe6d2" />
+        </g>
+      ))}
+      {/* Gantry crane straddling the middle block, with its shadow */}
+      <g fill="#000" fillOpacity="0.25" transform="translate(5 6)">
+        <rect x="190" y="84" width="6" height="78" />
+        <rect x="262" y="84" width="6" height="78" />
+        <rect x="190" y="84" width="78" height="5" />
+        <rect x="190" y="157" width="78" height="5" />
+      </g>
+      <g fill="#efe6d2">
+        <rect x="190" y="84" width="6" height="78" />
+        <rect x="262" y="84" width="6" height="78" />
+        <rect x="190" y="84" width="78" height="5" />
+        <rect x="190" y="157" width="78" height="5" />
+      </g>
+      <rect x="220" y="112" width="18" height="22" fill="#cbbf9f" stroke="#1f2a44" />
+    </svg>
+  );
+}
+
+const RECORD_ROWS = [
+  ["Shipper", "Red River Garment Co."],
+  ["Origin", "VN"],
+  ["HTS code", "6110.20"],
+  ["Shipments", "412 · $86M"],
+];
+
+export function ReceiptBook() {
+  return (
+    <svg viewBox="0 0 320 240" className="block h-auto w-full border border-mf-rule" role="img" aria-label="A carbon-copy receipt book">
+      <rect width="320" height="240" fill="#cbbf9f" />
+      <g transform="rotate(-3 160 120)">
+        <rect x="44" y="31" width="252" height="194" fill="#1f2a44" fillOpacity="0.18" />
+        <rect x="40" y="26" width="254" height="196" fill="#efe6d2" />
+        <rect x="37" y="23" width="253" height="195" fill="#34408a" />
+        <rect x="34" y="20" width="252" height="194" fill="#fbf8f1" />
+        <rect x="34" y="20" width="252" height="16" fill="#1f2a44" />
+        <rect x="70" y="26" width="16" height="3" fill="#cbbf9f" />
+        <rect x="236" y="26" width="16" height="3" fill="#cbbf9f" />
+        <line x1="86" y1="36" x2="86" y2="214" stroke="#6b6455" strokeDasharray="2 3" />
+        <text
+          transform="rotate(-90 64 125)"
+          x="64"
+          y="125"
+          textAnchor="middle"
+          fontSize="8"
+          letterSpacing="2"
+          fill="#6b6455"
+          style={{ fontFamily: "var(--next-mf-mono)" }}
+        >
+          COPY 1 OF 3
+        </text>
+        <text x="98" y="58" fontSize="16" fontWeight="800" letterSpacing="1" fill="#1f2a44" style={{ fontFamily: "var(--next-mf-shoulders)" }}>
+          SHIPMENT RECORD
+        </text>
+        <g filter="url(#mf-ink)" transform="rotate(-8 240 122)">
+          <rect x="210" y="111" width="60" height="22" fill="none" stroke="#c2352b" strokeWidth="2" />
+          <text x="240" y="127" textAnchor="middle" fontSize="13" fill="#c2352b" letterSpacing="2" style={{ fontFamily: "var(--next-mf-stencil)" }}>
+            LEAD
+          </text>
+        </g>
+        {RECORD_ROWS.map(([label, value], i) => (
+          <g key={label}>
+            <text x="98" y={80 + i * 34} fontSize="7" letterSpacing="1.5" fill="#6b6455" style={{ fontFamily: "var(--next-mf-mono)" }}>
+              {label.toUpperCase()}
+            </text>
+            <text
+              x="98"
+              y={95 + i * 34}
+              fontSize="13"
+              fill="#34408a"
+              filter="url(#mf-carbon)"
+              style={{ fontFamily: "var(--next-mf-typewriter)" }}
+            >
+              {value}
+            </text>
+            <line x1="98" y1={100 + i * 34} x2="274" y2={100 + i * 34} stroke="#cbbf9f" />
+          </g>
+        ))}
+      </g>
+    </svg>
+  );
+}

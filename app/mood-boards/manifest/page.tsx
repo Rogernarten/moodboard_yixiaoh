@@ -4,6 +4,7 @@ import { manifestFonts } from "./fonts";
 import {
   Buttons,
   CarbonCopy,
+  ContainerYard,
   InkFilters,
   KraftGrain,
   LadingFields,
@@ -11,6 +12,7 @@ import {
   MixBars,
   PerforatedEdge,
   PhotoSlot,
+  ReceiptBook,
   RecommendationStamps,
   Swatch,
   TypeSample,
@@ -19,14 +21,16 @@ import {
 
 export const metadata: Metadata = { title: "Manifest · Mood board" };
 
-type Kind = "Photo" | "Type" | "Color" | "Texture" | "Interface";
+type Kind = "Photo" | "Illustration" | "Type" | "Color" | "Texture" | "Interface";
 
 export default function ManifestMoodBoard() {
-  const artifacts: { kind: Kind; title: string; content: React.ReactNode }[] = [
+  // generated: drawn by the agent in SVG or CSS rather than collected
+  const artifacts: { kind: Kind; title: string; content: React.ReactNode; generated?: boolean }[] = [
     {
-      kind: "Photo",
+      kind: "Illustration",
       title: "Container yard from above",
-      content: <PhotoSlot file="container-yard.jpg" alt="Container yard seen from above" query="container yard aerial drone" aspect="3/2" />,
+      content: <ContainerYard />,
+      generated: true,
     },
     {
       kind: "Type",
@@ -44,7 +48,7 @@ export default function ManifestMoodBoard() {
       title: "Rubber stamp on a document",
       content: <PhotoSlot file="rubber-stamp.jpg" alt="A wooden rubber stamp resting on a printed document" query="rubber stamp ink" aspect="1600/1240" />,
     },
-    { kind: "Texture", title: "Kraft paper grain", content: <KraftGrain /> },
+    { kind: "Texture", title: "Kraft paper grain", content: <KraftGrain />, generated: true },
     {
       kind: "Type",
       title: "Mono figures",
@@ -72,7 +76,7 @@ export default function ManifestMoodBoard() {
     },
     { kind: "Interface", title: "Boxed record fields", content: <LadingFields /> },
     { kind: "Color", title: "Ink navy", content: <Swatch hex="#1F2A44" name="Ink navy" role="Text" /> },
-    { kind: "Texture", title: "Carbon copy", content: <CarbonCopy /> },
+    { kind: "Texture", title: "Carbon copy", content: <CarbonCopy />, generated: true },
     {
       kind: "Photo",
       title: "Stack of paperwork",
@@ -96,11 +100,12 @@ export default function ManifestMoodBoard() {
       content: <Swatch hex="#FBF8F1" name="Carbon white" role="Surface" />,
     },
     {
-      kind: "Photo",
+      kind: "Illustration",
       title: "Carbon-copy receipt book",
-      content: <PhotoSlot file="carbon-receipt.jpg" alt="A carbon-copy receipt book" query="carbon copy invoice book" aspect="4/3" />,
+      content: <ReceiptBook />,
+      generated: true,
     },
-    { kind: "Texture", title: "Perforated tear-off", content: <PerforatedEdge /> },
+    { kind: "Texture", title: "Perforated tear-off", content: <PerforatedEdge />, generated: true },
     {
       kind: "Type",
       title: "Condensed body",
@@ -126,7 +131,7 @@ export default function ManifestMoodBoard() {
       ),
     },
     { kind: "Interface", title: "Buttons and link", content: <Buttons /> },
-    { kind: "Texture", title: "Ledger rules", content: <LedgerGrid /> },
+    { kind: "Texture", title: "Ledger rules", content: <LedgerGrid />, generated: true },
     {
       kind: "Photo",
       title: "Clipboard with a handwritten log",
@@ -179,7 +184,8 @@ export default function ManifestMoodBoard() {
             rubber stamps. Practical and tactile, with nothing for show.
           </p>
           <p className="mt-6 font-mf-mono text-xs text-mf-umber">
-            {artifacts.length} artifacts: photos, type, color, texture and interface pieces
+            {artifacts.length} artifacts: photos, illustrations, type, color, texture and interface
+            pieces · ✦ drawn by the agent in code
           </p>
         </header>
 
@@ -192,7 +198,10 @@ export default function ManifestMoodBoard() {
                   <span className="text-mf-ink">{String(i + 1).padStart(2, "0")}</span>
                   <span>{artifact.kind}</span>
                   <span>·</span>
-                  <span>{artifact.title}</span>
+                  <span>
+                    {artifact.title}
+                    {artifact.generated && <span className="text-mf-ink"> ✦</span>}
+                  </span>
                 </figcaption>
               </figure>
             </li>
