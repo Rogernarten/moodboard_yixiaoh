@@ -20,19 +20,16 @@ export function PhotoSlot({
   const exists = fs.existsSync(path.join(process.cwd(), "public", PHOTO_DIR, file));
 
   return (
-    <div className="relative isolate h-full min-h-48 w-full overflow-hidden bg-np-signal" style={{ aspectRatio: aspect }}>
+    <div className="relative h-full min-h-48 w-full overflow-hidden bg-np-panel" style={{ aspectRatio: aspect }}>
       {exists ? (
-        <>
-          {/* Monitor feed: grayscale between signal white and night black. */}
-          <Image
-            src={`/${PHOTO_DIR}/${file}`}
-            alt={alt}
-            fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover mix-blend-multiply grayscale contrast-125"
-          />
-          <div aria-hidden className="absolute inset-0 bg-np-night mix-blend-lighten" />
-        </>
+        /* Monitor feed: plain grayscale on a dark panel, so nothing flashes white while loading. */
+        <Image
+          src={`/${PHOTO_DIR}/${file}`}
+          alt={alt}
+          fill
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="object-cover grayscale contrast-125 brightness-90"
+        />
       ) : (
         <div
           className="flex h-full flex-col justify-end gap-1 bg-np-panel p-4 font-np-mono text-[11px] text-np-steel"

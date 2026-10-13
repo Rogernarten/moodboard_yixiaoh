@@ -39,7 +39,7 @@ export default function NightPortMoodBoard() {
     {
       kind: "Photo",
       title: "Container terminal at night",
-      content: <PhotoSlot file="terminal-night.jpg" alt="A container terminal lit at night" query="container terminal night" aspect="2/1" />,
+      content: <PhotoSlot file="terminal-night.jpg" alt="A container terminal lit at night" query="container terminal night" aspect="1600/1188" />,
       wide: true,
       bleed: true,
     },
@@ -75,7 +75,7 @@ export default function NightPortMoodBoard() {
     {
       kind: "Photo",
       title: "Control room screens",
-      content: <PhotoSlot file="control-room.jpg" alt="A wall of screens in a dark control room" query="control room screens" aspect="4/3" />,
+      content: <PhotoSlot file="control-room.jpg" alt="A wall of screens in a dark control room" query="control room screens" aspect="16/9" />,
       bleed: true,
     },
     { kind: "Interface", title: "Buttons and link", content: <Buttons /> },
@@ -127,7 +127,7 @@ export default function NightPortMoodBoard() {
     {
       kind: "Photo",
       title: "Harbour lights",
-      content: <PhotoSlot file="harbour-lights.jpg" alt="Long-exposure harbour lights on dark water" query="harbor lights long exposure" aspect="4/3" />,
+      content: <PhotoSlot file="harbour-lights.jpg" alt="Long-exposure harbour lights on dark water" query="harbor lights long exposure" aspect="1600/1067" />,
       bleed: true,
     },
     { kind: "Interface", title: "Origin mix bars", content: <MixBars /> },

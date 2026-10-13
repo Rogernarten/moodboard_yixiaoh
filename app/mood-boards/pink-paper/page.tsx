@@ -42,7 +42,7 @@ export default function PinkPaperMoodBoard() {
     {
       kind: "Photo",
       title: "Printing press",
-      content: <PhotoSlot file="printing-press.jpg" alt="Rollers of a printing press" query="printing press" aspect="3/4" />,
+      content: <PhotoSlot file="printing-press.jpg" alt="Rollers of a printing press" query="printing press" aspect="1600/1068" />,
     },
     {
       kind: "Type",
@@ -85,7 +85,7 @@ export default function PinkPaperMoodBoard() {
     {
       kind: "Photo",
       title: "Reading glasses on a report",
-      content: <PhotoSlot file="reading-glasses.jpg" alt="Reading glasses resting on printed pages" query="reading glasses paper" aspect="4/3" />,
+      content: <PhotoSlot file="reading-glasses.jpg" alt="Reading glasses resting on printed pages" query="reading glasses paper" aspect="1600/1067" />,
     },
     { kind: "Color", title: "Sidebar tint", content: <Swatch hex="#F7E3D3" name="Sidebar tint" role="Surface" /> },
     { kind: "Texture", title: "Column grid", content: <ColumnGrid />, generated: true },
@@ -106,14 +106,14 @@ export default function PinkPaperMoodBoard() {
     {
       kind: "Photo",
       title: "Letterpress type",
-      content: <PhotoSlot file="letterpress.jpg" alt="Trays of metal letterpress type" query="letterpress type" aspect="3/2" />,
+      content: <PhotoSlot file="letterpress.jpg" alt="Trays of metal letterpress type" query="letterpress type" aspect="3/4" />,
     },
     { kind: "Interface", title: "What-to-do sidebar", content: <WhatToDo /> },
     { kind: "Color", title: "Graphite", content: <Swatch hex="#66605A" name="Graphite" role="Muted text" /> },
     {
       kind: "Photo",
       title: "Pen on a printout",
-      content: <PhotoSlot file="pen-printout.jpg" alt="A pen marking up a printed page" query="pen annotating document" aspect="4/5" />,
+      content: <PhotoSlot file="pen-printout.jpg" alt="A pen marking up a printed page" query="pen annotating document" aspect="1071/1600" />,
     },
     { kind: "Texture", title: "Fold crease", content: <FoldCrease />, generated: true },
     {
