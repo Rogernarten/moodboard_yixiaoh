@@ -271,7 +271,7 @@ export default function NightPortDesignSystem() {
                 <ChipsDemo />
               </div>
             </Demo>
-            <Demo label="Segmented tabs · arrow keys move between lenses">
+            <Demo label="Segmented tabs · Tab and Enter, or arrow keys">
               <TabsDemo />
             </Demo>
             <Demo label="Card · a category as a monitor panel">

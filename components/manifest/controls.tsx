@@ -263,6 +263,7 @@ export function Tabs<T extends string>({
 }) {
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
 
+  // Every tab is a Tab stop (users didn't discover arrow-only tabs); arrows are a shortcut.
   function onKeyDown(event: React.KeyboardEvent, index: number) {
     const step = event.key === "ArrowRight" ? 1 : event.key === "ArrowLeft" ? -1 : 0;
     if (!step) return;
@@ -286,7 +287,6 @@ export function Tabs<T extends string>({
             type="button"
             role="tab"
             aria-selected={selected}
-            tabIndex={selected ? 0 : -1}
             disabled={forced === "disabled"}
             onClick={() => onChange?.(item.id)}
             onKeyDown={(event) => onKeyDown(event, i)}

@@ -146,6 +146,7 @@ export function ShiftmapApp() {
                   <button
                     type="button"
                     aria-pressed={c.id === categoryId}
+                    aria-label={`${c.name}: ${c.recommendation}, ${c.netMargin.gapBps} bps net margin vs peers`}
                     onClick={() => selectCategory(c.id)}
                     className="group block w-full cursor-pointer text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mf-ink active:translate-y-px"
                   >

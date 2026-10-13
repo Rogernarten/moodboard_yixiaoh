@@ -287,7 +287,7 @@ export default function ManifestDesignSystem() {
                 <ChipsDemo />
               </div>
             </Demo>
-            <Demo label="Tabs · arrow keys move between lenses">
+            <Demo label="Tabs · Tab and Enter, or arrow keys">
               <TabsDemo />
             </Demo>
             <Demo label="Category card · full and compact (site sidebar)">

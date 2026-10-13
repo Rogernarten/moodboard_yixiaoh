@@ -274,7 +274,7 @@ export default function PinkPaperDesignSystem() {
                 <ChipsDemo />
               </div>
             </Demo>
-            <Demo label="Tabs · arrow keys move between lenses">
+            <Demo label="Tabs · Tab and Enter, or arrow keys">
               <TabsDemo />
             </Demo>
             <Demo label="Card · a category as a short article">
