@@ -330,3 +330,83 @@ export function Buttons() {
     </div>
   );
 }
+
+export function Masthead() {
+  return (
+    <div className="text-center">
+      <p className="flex justify-between border-b border-pp-ink pb-1 font-pp-sans text-[10px] uppercase tracking-[0.2em] text-pp-graphite">
+        <span>US</span>
+        <span>Oct 2025 – Sep 2026</span>
+      </p>
+      <p className="py-2 font-pp-display text-5xl font-semibold tracking-tight">Shiftmap</p>
+      <p className="border-t-4 border-double border-pp-ink pt-1.5 font-pp-sans text-[10px] uppercase tracking-[0.2em]">
+        Landscape report · Women’s knit sweaters
+      </p>
+    </div>
+  );
+}
+
+const MARGINS = [
+  { category: "Women’s knit sweaters", own: 3.3, peers: 7.4, gap: "−410 bps" },
+  { category: "Women’s leggings", own: 6.8, peers: 8.1, gap: "−130 bps" },
+  { category: "Crew-neck tees", own: 9.2, peers: 10.0, gap: "−80 bps" },
+  { category: "Men’s down jackets", own: 1.9, peers: 6.6, gap: "−470 bps" },
+];
+
+export function SmallMultiples() {
+  return (
+    <div>
+      <p className="font-pp-display text-lg font-semibold leading-tight">Net margin, own brand vs peers</p>
+      <p className="font-pp-sans text-xs text-pp-graphite">Four categories, last 12 months (%)</p>
+      <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-4 border-t-2 border-pp-ink pt-3">
+        {MARGINS.map((m) => (
+          <div key={m.category} className="font-pp-sans text-[11px] tabular-nums">
+            <p className="font-semibold leading-tight">{m.category}</p>
+            <div className="mt-1.5 space-y-1">
+              <div className="flex items-center gap-1.5">
+                <div className="h-2 bg-pp-ink" style={{ width: `${m.own * 7}%` }} />
+                <span>{m.own.toFixed(1)}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <div className="h-2 bg-pp-rule" style={{ width: `${m.peers * 7}%` }} />
+                <span className="text-pp-graphite">{m.peers.toFixed(1)}</span>
+              </div>
+            </div>
+            <p className="mt-1 font-pp-serif italic text-pp-graphite">{m.gap}</p>
+          </div>
+        ))}
+      </div>
+      <p className="mt-3 font-pp-sans text-[11px] text-pp-graphite">
+        <span className="mr-1 inline-block h-2 w-2 bg-pp-ink" />
+        Own brand
+        <span className="mr-1 ml-3 inline-block h-2 w-2 bg-pp-rule" />
+        Retail peers
+      </p>
+    </div>
+  );
+}
+
+const RECOMMENDATIONS = [
+  { category: "Women’s knit sweaters", tag: "Rebalance", detail: "CN→VN 12 pts, CN→KH 8 pts" },
+  { category: "Women’s leggings", tag: "Renegotiate freight", detail: "VN lane $1.08 vs $0.66/u" },
+  { category: "Crew-neck tees", tag: "Add origin", detail: "Test Guatemala for ~10 pts" },
+  { category: "Men’s down jackets", tag: "Rebalance", detail: "CN→VN 12 pts" },
+];
+
+export function RecommendationTags() {
+  return (
+    <ul className="divide-y divide-pp-rule border-y border-pp-ink">
+      {RECOMMENDATIONS.map((r) => (
+        <li key={r.category} className="py-2">
+          <div className="flex items-baseline justify-between gap-2">
+            <span className="font-pp-display text-[15px] font-semibold">{r.category}</span>
+            <span className="shrink-0 border border-pp-ink px-1.5 py-0.5 font-pp-sans text-[10px] font-semibold uppercase tracking-wider">
+              {r.tag}
+            </span>
+          </div>
+          <p className="font-pp-sans text-xs tabular-nums text-pp-graphite">{r.detail}</p>
+        </li>
+      ))}
+    </ul>
+  );
+}

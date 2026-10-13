@@ -7,10 +7,13 @@ import {
   FoldCrease,
   Halftone,
   HeadlineBlock,
+  Masthead,
   OriginTable,
   PhotoSlot,
+  RecommendationTags,
   ShowThrough,
   SlopeChart,
+  SmallMultiples,
   Swatch,
   TypeSample,
   WhatToDo,
@@ -23,11 +26,7 @@ type Kind = "Photo" | "Type" | "Color" | "Texture" | "Interface";
 export default function PinkPaperMoodBoard() {
   // generated: drawn by the agent in SVG or CSS rather than collected
   const artifacts: { kind: Kind; title: string; content: React.ReactNode; generated?: boolean }[] = [
-    {
-      kind: "Photo",
-      title: "Folded newspaper",
-      content: <PhotoSlot file="folded-newspaper.jpg" alt="A folded newspaper on a table" query="folded newspaper" aspect="4/3" />,
-    },
+    { kind: "Interface", title: "Report masthead", content: <Masthead /> },
     {
       kind: "Type",
       title: "Display figures",
@@ -59,9 +58,15 @@ export default function PinkPaperMoodBoard() {
     { kind: "Color", title: "Press ink", content: <Swatch hex="#262A33" name="Press ink" role="Text" /> },
     { kind: "Interface", title: "Ruled data table", content: <OriginTable /> },
     {
-      kind: "Photo",
-      title: "Coffee and the morning paper",
-      content: <PhotoSlot file="coffee-paper.jpg" alt="A cup of coffee beside a newspaper" query="newspaper coffee" aspect="1/1" />,
+      kind: "Type",
+      title: "Pull quote",
+      content: (
+        <TypeSample spec="Newsreader · 500 · Pull quote">
+          <p className="font-pp-display text-3xl font-medium leading-tight tracking-tight">
+            <span className="-ml-3 text-pp-graphite">“</span>The industry already moved.”
+          </p>
+        </TypeSample>
+      ),
     },
     { kind: "Texture", title: "Halftone screen", content: <Halftone />, generated: true },
     {
@@ -137,17 +142,9 @@ export default function PinkPaperMoodBoard() {
       ),
     },
     { kind: "Color", title: "Hairline", content: <Swatch hex="#DCC5B2" name="Hairline" role="Border" /> },
-    {
-      kind: "Photo",
-      title: "Paper rolls",
-      content: <PhotoSlot file="paper-rolls.jpg" alt="Large rolls of newsprint paper" query="paper rolls printing" aspect="3/4" />,
-    },
+    { kind: "Interface", title: "Small multiples", content: <SmallMultiples /> },
     { kind: "Interface", title: "Buttons and link", content: <Buttons /> },
-    {
-      kind: "Photo",
-      title: "Charts on the desk",
-      content: <PhotoSlot file="charts-desk.jpg" alt="Printed charts spread on a desk" query="printed charts desk" aspect="4/3" />,
-    },
+    { kind: "Interface", title: "Recommendation tags", content: <RecommendationTags /> },
   ];
 
   return (
