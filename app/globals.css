@@ -12,6 +12,11 @@
   --font-pp-serif: var(--next-pp-serif);
   --font-pp-sans: var(--next-pp-sans);
   --font-pp-kicker: var(--next-pp-kicker);
+  --font-np-display: var(--next-np-display);
+  --font-np-label: var(--next-np-label);
+  --font-np-body: var(--next-np-body);
+  --font-np-mono: var(--next-np-mono);
+  --font-np-dot: var(--next-np-dot);
 }
 
 /* Manifest mood board palette, prefixed mf- */
@@ -32,6 +37,16 @@
   --color-pp-graphite: #66605a;
   --color-pp-rule: #dcc5b2;
   --color-pp-teal: #0f5257;
+}
+
+/* Night Port mood board palette, prefixed np- */
+@theme {
+  --color-np-night: #0e1116;
+  --color-np-panel: #171b22;
+  --color-np-signal: #e6e8eb;
+  --color-np-steel: #8b93a1;
+  --color-np-edge: #2a303a;
+  --color-np-amber: #ffb020;
 }
 
 body {
