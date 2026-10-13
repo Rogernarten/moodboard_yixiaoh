@@ -291,7 +291,7 @@ export function Tabs<T extends string>({
             onClick={() => onChange?.(item.id)}
             onKeyDown={(event) => onKeyDown(event, i)}
             className={cx(
-              "-mb-px cursor-pointer border-x border-t px-3 py-2 font-mf-mono text-xs font-semibold uppercase tracking-wider whitespace-nowrap active:translate-y-px disabled:cursor-not-allowed disabled:text-mf-rule",
+              "-mb-px cursor-pointer border-x border-t px-2 py-2 font-mf-mono text-[11px] font-semibold uppercase tracking-wider whitespace-nowrap sm:px-3 sm:text-xs active:translate-y-px disabled:cursor-not-allowed disabled:text-mf-rule",
               LIVE_FOCUS,
               selected
                 ? "border-mf-ink bg-mf-paper text-mf-ink"

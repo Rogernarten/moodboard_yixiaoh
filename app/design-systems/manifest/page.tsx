@@ -290,8 +290,13 @@ export default function ManifestDesignSystem() {
             <Demo label="Tabs · arrow keys move between lenses">
               <TabsDemo />
             </Demo>
-            <Demo label="Category card">
-              <CategoryCard category={sweaters} />
+            <Demo label="Category card · full and compact (site sidebar)">
+              <div className="grid gap-3">
+                <CategoryCard category={sweaters} />
+                <div className="max-w-xs">
+                  <CategoryCard category={CATEGORIES[1]} compact />
+                </div>
+              </div>
             </Demo>
             <Demo label="List rows">
               <VendorRows vendors={[VENDORS[2], VENDORS[6], VENDORS[7]]} />

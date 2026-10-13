@@ -18,7 +18,7 @@ const sections: { title: string; note?: string; links: HubLink[] }[] = [
   },
   {
     title: "The site",
-    links: [{ label: "Open Shiftmap" }],
+    links: [{ label: "Open Shiftmap", href: "/shiftmap" }],
   },
 ];
 

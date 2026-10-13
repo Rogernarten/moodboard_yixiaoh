@@ -37,7 +37,7 @@ export function Stamp({
         tone === "red" ? "border-mf-stamp text-mf-stamp" : "border-mf-ink text-mf-ink",
         size === "lg" ? "border-[5px] border-double px-3 py-0.5 text-2xl tracking-wider" : "border-2 px-1.5 py-px text-[11px] leading-4 tracking-widest",
       )}
-      style={{ transform: tilt ? `rotate(${tilt}deg)` : undefined, filter: "url(#mf-ink)" }}
+      style={{ transform: tilt ? `rotate(${tilt}deg)` : undefined, filter: size === "lg" ? "url(#mf-ink)" : undefined }}
     >
       {children}
     </span>
@@ -46,15 +46,32 @@ export function Stamp({
 
 /* ---------- Category card ---------- */
 
-export function CategoryCard({ category, selected }: { category: Category; selected?: boolean }) {
+const minus = (n: number) => (n < 0 ? `−${Math.abs(n)}` : `+${n}`);
+
+/* Put it inside a `group` button to make it selectable; hover then inks the edge. */
+export function CategoryCard({ category, selected, compact }: { category: Category; selected?: boolean; compact?: boolean }) {
   const { netMargin, freight } = category;
+  const edge = selected ? "border-mf-ink shadow-[inset_0_0_0_1px_var(--color-mf-ink)]" : "border-mf-rule group-hover:border-mf-ink";
+
+  if (compact) {
+    return (
+      <div className={cx("border bg-mf-paper p-3 text-left transition-colors", edge)}>
+        <div className="flex items-start justify-between gap-2">
+          <p className="font-mf-mono text-[10px] uppercase tracking-wider text-mf-umber">
+            {category.brandLine.replace("Northfold ", "")} · HTS {category.hts}
+          </p>
+          <Stamp tilt={-3}>{category.recommendation}</Stamp>
+        </div>
+        <p className="mt-1 font-mf-condensed text-lg font-semibold leading-tight">{category.name}</p>
+        <p className="mt-1 font-mf-mono text-xs tabular-nums text-mf-umber">
+          <span className="font-semibold text-mf-ink">{minus(netMargin.gapBps)} bps</span> net margin vs peers
+        </p>
+      </div>
+    );
+  }
+
   return (
-    <div
-      className={cx(
-        "border bg-mf-paper p-4 text-left",
-        selected ? "border-mf-ink shadow-[inset_0_0_0_1px_var(--color-mf-ink)]" : "border-mf-rule",
-      )}
-    >
+    <div className={cx("border bg-mf-paper p-4 text-left transition-colors", edge)}>
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="font-mf-mono text-[11px] uppercase tracking-wider text-mf-umber">
@@ -68,7 +85,7 @@ export function CategoryCard({ category, selected }: { category: Category; selec
         <div className="border-r border-b border-mf-ink p-2">
           <dt className="text-[10px] uppercase tracking-wider text-mf-umber">Net margin vs peers</dt>
           <dd className="mt-0.5">
-            <span className="font-semibold">{netMargin.own}%</span> vs {netMargin.peers}%
+            <span className="font-semibold">{netMargin.own.toFixed(1)}%</span> vs {netMargin.peers.toFixed(1)}%
           </dd>
         </div>
         <div className="border-r border-b border-mf-ink p-2">
@@ -79,7 +96,7 @@ export function CategoryCard({ category, selected }: { category: Category; selec
         </div>
       </dl>
       <p className="mt-3 font-mf-condensed text-sm">
-        <span className="font-mf-mono font-semibold tabular-nums">{netMargin.gapBps} bps</span> · {category.action}
+        <span className="font-mf-mono font-semibold tabular-nums">{minus(netMargin.gapBps)} bps</span> · {category.action}
       </p>
     </div>
   );
